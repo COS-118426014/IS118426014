@@ -1,6 +1,7 @@
 <html>
       <head>
       <title>Index Page 118426014</title>
+       <a href="https://php-project100.herokuapp.com/">Home</a>
      </head>
     <center> <header>
             <style>
