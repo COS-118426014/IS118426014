@@ -18,7 +18,7 @@
         <br></br>
         <br></br>
          <footer>
-          <a href="Index.html">Index Page</a>
+          <a href="index.php">Index Page</a>
       </footer>
      </body>
      
