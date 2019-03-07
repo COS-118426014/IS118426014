@@ -1,83 +1,25 @@
-Ebus 1
-<html>
-<!--Ebus calculations page-->
-     <head>
-         <title>Calculator</title>
-            
-<script language ="javascript" type="text/javascript">
-                 <!--assigning values to the radio buttons-->
-function subTotal() {
- //Enter in Prices Here
- var x = 5;
- var y = 10;
- var p = x + y * 12;
- var b = y * 12;
- 
-    if (document.getElementById('basicProgram').checked) {
-     //Basic package is checked
-     document.calculator.total.value = b;
-    
-        } else if (document.getElementById('proProgram').checked) {
-         // Pro package is checked
-         document.calculator.total.value = p;
-    }
-        
- }
-
-<!--Calculations for discount and total-->
-function calcDisc(){
-var subTot = document.calculator.total.value;
-var discTotal = ((subTot /100 *10))
-document.calculator.discount.value = discTotal;
-}
-
-function calcTotal(){
-var subTott = document.calculator.total.value;
-
-var discTotal = document.calculator.discount.value;
-
-var wholeTotal = (subTott - discTotal);
-
-document.calculator.wholeTotal.value = wholeTotal;
-}
-    </script> 
-    </head>
-
+    <!DOCTYPE html>
+    <html>
+          <head>
+         <title>e-Business 3</title>
+     </head>
+        <body bgcolor="#f2d2f2">   
+        <!--same variable from last page-->
    
-     <body>
-              <!-- Opening a HTML form -->
-         <form name="calculator">
-            
-         <!--User fills out form here -->
-        
-         <br />
-         <input type="radio" name="programType" id="basicProgram" value="Basic" /> Basic
-         <input type="radio" name="programType" id="proProgram" value="Pro" checked /> Pro 
-        
-         <!-- Here Results will be displayed -->
-        
-         <br />
-         Subtotal: <input type="text" name="total">
-         <br>
-         <input type="button" value="Subtotal" onclick="javascript:subTotal();">
-         </br>
-        
-         Discount: <input type="text" name="discount">
-         <br>
-         <input type="button" value="Discount" onclick="javascript:calcDisc();">
-         </br>
-        
-         Total: <input type="text" name="wholeTotal">
-         <br>
-         <input type="button" value="Total" onclick="javascript:calcTotal();">
-        
-        
-         </form>
-
-
-
-
+    <?php
+ 
+     session_start () ;
+     @$totalValue2 = $_POST ['txtTotal'];
+    @$fullNameValue= $_POST ['txtName'];
+    echo "The name is : ".$fullNameValue.".";
+    echo "<br></br>";
+    echo "The total value is : ".$totalValue2.">";
+    ?>
+        <br></br>
+        <br></br>
+         <footer>
+          <a href="Index.html">Index Page</a>
+      </footer>
      </body>
-
-</html>
-
+     
+    </html>

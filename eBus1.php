@@ -1,115 +1,127 @@
+<!--Assigning a session variable to txtTotal -->
+
 <?php
 session_start();
 $totalValue = "";
 $_SESSION['txtTotal'] = $totalValue;
 ?>
-<!DOCTYPE html>
-<html lang="en" xmins="http://www.w3.org/1999/xhtml">
-      <head>
-          <meta charset="utf-9" />
-          <title>eBusiness1</title>
-          <link rel="stylesheet" href="style.css" type=text.css" />
+
+    <!DOCTYPE html>
+    <html lang="en" xmins="https.//www.w3.org/1999/xhtml"
+        <head>
+            <meta charset="utf-8" />
+            <title> E-business 1</title>
+            <link rel="stylesheet" href="style.css" type="text/css" />
+            
     </head>
-    <body>
-        <div class="form">
-            <form name="intCalc" method="post" action="eBus3.php">
-               <center>
-                <h1>Shop Calculator</h1>
-               </center>
-                <br />
-                <center>
-                    <table cellspacing="10">
-                        <tr>
-                            <td><b>Select a Consulting Service</b></td>
-                        </tr>
-                    <tr>
+   
+        
+            <body bgcolor="#f2d2f2">   
+   
+            <div class="form">
+                <form name="intCalc" method="post" action="eBus2.php">
+                      <h1>Shop Calculator</h1>
+               
+                    <center>
+                        <table cellspacing="10">
+                            <tr>
+                            <td><b><h1 style="background-color:rgba(255, 99, 71, 0.2);">Select a Consulting Service:</b></td>
+                            </tr>
+                            <tr>
                             <td>Blockchain @ $1000</td>
-                            <td><input type="radio" id="Blockchain" name="rdoBlockchain"/>
-                            </td>
-                    /tr>
-                        <tr>
-                            <td>Autonomous Things (Robot) @ $2000</td>
-                            <td><input type="radio" id="Robota" name="rdoRobots"/>
-                            </td>
+                            <td><input type="radio" id="Blockchain" name="rdoGroup" value="1000" /></td>
                         </tr>
-                    <tr>
-                            <td>Immersive Experience</td>
-                            <td><input type="radio" id="Immersive" name="rdoImmersive"/>
-                            </td>
-                    </tr>
+                        <tr>
+                            <td>Autonomous Things @ $2000</td>
+                            <td><input type="radio" id="Autonomous" name="rdoGroup" value="2000" /></td>
+                        </tr>
+                        <tr>
+                            <td>Immersive Experience @ $3000</td>
+                            <td><input type="radio" id="Immersive" name="rdoGroup" value="3000" /></td>
+                        </tr>
                     </table>
                 </center>
                 <br />
                
-                <center>
+                  <center>
                     <table cellspacing="10">
-                    <tr>
-                            <td><b></b></td>
-                            <td><b>Amount</b></td>
-                     </tr>
                         <tr>
+                            <td><b></b></td>
+                              <td><b>Amount</b></td>
+                        </tr>
+                            <tr>
                             <td>Sub Total</td>
                             <td><input type="text" id="txtSubTot" name="txtSub" readonly /></td>
-                        </tr>
-                     <tr>
+                            </tr>
+                        <tr>
                             <td>Discount @ 10%</td>
                             <td><input type="text" id="txtDisc" name="txtDisc" readonly /></td>
-                     </tr>
+                        </tr>
                         <tr>
-                            <td>VAT @ 20%</td>
+                            <td>+VAT @ 20%</td>
                             <td><input type="text" id="txtVat" name="txtVat" readonly /></td>
                         </tr>
-                     <tr>
+                        <tr>
                             <td>Total</td>
-                            <td><input type="text" id="txtTotal" name="txtTotal" readonly /></td>
-                     </tr>
+                            <td><input type="text" id="txtTotal" name="txtTotal" value="" readonly /></td>
+                        </tr>
                     </table>
-            </center>
-           <br />
-                <center>
-                    <input type="button" name="btnCalc" id="btnCalc" onclick="calcSub()" value ="Calculate Amount"/>
-                    <input type="button" name="btnClass" id="btnClass" onclick="AmountClear()" value ="Clear"/>
-                    <input type="submit" name="btnPassword" id="btnPassword" onclick="" value ="Password"/>
                 </center>
-            </form>
-        </div>
-       
-    <script type="text/javascript">
-            function calcSub(){
-                var subAmount = parsedfloat(document.getElementById("txtSubTot").value);
-                var Blockchain = parsedfloat(document.getElementById("Blockchain").value);
-                var Robots = parsedfloat(documetn.getElementById("Robots").value);
-                var Immersive = parsedfloat(document.getElementById("Immersive").value);
+                <br />
+                   <center>    
+                     <input type="button" name="btnCalc" id="btnCalc" onclick="calcSub()" value="Calculate Amount"/>
+                     <input type="button" name="btnClear" id="btnClear" onclick="AmountClear()" value="Clear Choice" />
+                      <input type="submit" name="btnAdd" id="btnAdd" onclick="" value="Add to Shopping Cart" />
+                    </center>
+             </form>
+         </div>
+            
+                  <script type="text/javascript">
+              function calcSub() {
+                    //Assign variables to values
+                    var subAmount = parseFloat(document.getElementById('txtSubTot').value);
+                    var Blockchain = parseFloat(document.getElementById('Blockchain').value);
+                    var Autonomous = parseFloat(document.getElementById('Autonomous').value);
+                    var Immersive = parseFloat(document.getElementById('Immersive').value);
                
-                if (document.getElementById("Blockchain").checked) {
-                        document.intCalc.txtSubTot.value = Blockchain;
-                subAmount = Blockchain;
-                calculation(subAmount);
+                //If radio buttons are clicked, values are assigned
+                if (document.getElementById('Blockchain').checked) {
+                    document.intCalc.txtSubTot.value = Blockchain;
+                    subAmount = Blockchain;
+                    calculation(subAmount);
+                }
+                else if (document.getElementById('Autonomous').checked) {
+                     document.intCalc.txtSubTot.value = Autonomous;
+                     subAmount = Autonomous;
+                     calculation(subAmount);
             }
-        else if (document.getElentById("Robots").checked) {
-            document.intCalc.txtSubTot.value = Robots;
-            subAmount = Robots;
-            calculation(subAmount);
-        }
-        else if (document.getElentById("Immersive").checked) {
-            document.intCalc.txtSubTot.value = Immersive;
-            subAmount = Immersive;
-            calculation(subAmount);
-    }
-    }
-     function calculation(parmSTotal){
-         var subTotal = parsefloat(parmStotal);
-         var discCalc = parsefloat(subTotal * 10%);
-         var vatCalc = parsefloat(subTotal * 20%);
-         var total = parsefloat(subTotal - discCalc + vatCalc);
-     }
-     function AmountClear(){
-         document.getElementById("txtSub").value="";
-         document.getElementById("txtDisc").value="";
-         document.getElementById("txtVat").value="";
-         document.getElementById("Total").value="";
-     }
-  </script>
-    </body>
-</html>
-
+                else if (document.getElementById('Immersive').checked) {
+                     document.intCalc.txtSubTot.value = Immersive;
+                     subAmount = Immersive;
+                     calculation(subAmount);
+                }
+            }
+           
+              //Function for values
+            function calculation(parmSTotal) {
+                 var subTotal = parseFloat(parmSTotal);
+                var discCalc = parseFloat(subTotal * .10);
+                var vatCalc = parseFloat(subTotal * .20);
+                 var total = parseFloat(subTotal - discCalc + vatCalc);
+               
+                //Inserting them into the correct fields
+                 document.intCalc.txtDisc.value = discCalc;
+                document.intCalc.txtVat.value = vatCalc;
+                document.intCalc.txtTotal.value = total;
+            }
+           
+                function AmountClear() {
+                    document.getElementById('txtSubTot').value ="";
+                     document.getElementById('txtDisc').value ="";
+                    document.getElementById('txtVat').value ="";
+                     document.getElementById('txtTotal').value ="";
+            }
+           
+            </script>
+        </body>
+    </html>
