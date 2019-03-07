@@ -20,8 +20,7 @@
       
             </div>
             <div class="container">
-                <h1 class="text-uppercase mb-0">Index Page</h1>
-                 <a href=" https://cos-phpproject10.herokuapp.com/">Home</a>
+                <h1 class="text-uppercase mb-0">Index Page 118426014</h1>
                 <br></br>
                 <br></br>
         <img class="img-fluid mb-5 d-block mx-auto" src="business2.png" alt="">
