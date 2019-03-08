@@ -25,7 +25,7 @@ $_SESSION['txtTotal'] = $totalValue;
                     <center>
                         <table cellspacing="10">
                             <tr>
-                            <td><b><h1 style="background-color:rgba(255, 99, 71, 0.2);">Select a Consulting Service:</b></td>
+                            <td><b><h1 style="background-color:rgba(256, 92, 71, 0.1);">Select a Consulting Service:</b></td>
                             </tr>
                             <tr>
                             <td>Blockchain @ $1000</td>
@@ -103,8 +103,8 @@ $_SESSION['txtTotal'] = $totalValue;
             }
            
               //Function for values
-            function calculation(parmSTotal) {
-                 var subTotal = parseFloat(parmSTotal);
+            function calculation(parmSubTotal) {
+                 var subTotal = parseFloat(parmSubTotal);
                 var discCalc = parseFloat(subTotal * .10);
                 var vatCalc = parseFloat(subTotal * .20);
                  var total = parseFloat(subTotal - discCalc + vatCalc);
